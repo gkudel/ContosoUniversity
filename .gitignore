@@ -1,0 +1,6 @@
+ContosoUniversity/bin/*
+ContosoUniversity/obj/*
+ContosoUniversity/App_Data/*.mdf
+ContosoUniversity/App_Data/*.ldf
+ContosoUniversity.Tests/bin/*
+ContosoUniversity.Tests/obj/*
