@@ -135,10 +135,16 @@
     </Compile>
     <Compile Include="Logging\ILogger.cs" />
     <Compile Include="Logging\Logger.cs" />
+    <Compile Include="Migrations\201505200727555_InitalCreate.cs" />
+    <Compile Include="Migrations\201505200727555_InitalCreate.Designer.cs">
+      <DependentUpon>201505200727555_InitalCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\Enrollment.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\Html\HtmlExtensions.cs" />
     <Compile Include="ViewModels\EnrollmentDateGroup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -193,6 +199,11 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201505200727555_InitalCreate.resx">
+      <DependentUpon>201505200727555_InitalCreate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

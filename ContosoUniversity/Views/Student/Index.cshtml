@@ -1,5 +1,7 @@
 ﻿@model PagedList.IPagedList<ContosoUniversity.Models.Student>
 @using PagedList.Mvc;
+@using ContosoUniversity.Utils.Html;
+
 <link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 
 @{
@@ -25,14 +27,14 @@
 }
 <table class="table">
     <tr>
-        <th>
-            @Html.ActionLink("Last Name", "Index", new { sortOrder = ViewBag.NameSortParam, currentFilter = ViewBag.CurrentFilter })
+        <th>            
+            @Html.ActionLink(@Html.DisplayNameFor(model => model.LastName).ToHtmlString(), "Index", new { sortOrder = ViewBag.NameSortParam, currentFilter = ViewBag.CurrentFilter })
         </th>
         <th>
-            First Name
+            @Html.DisplayNameFor(model => model.FirstMidName)
         </th>
         <th>
-            @Html.ActionLink("Enrollment Date", "Index", new { sortOrder = ViewBag.DateSortParm, currentFilter = ViewBag.CurrentFilter })
+            @Html.ActionLink(Html.DisplayNameFor(model => model.EnrollmentDate).ToHtmlString(), "Index", new { sortOrder = ViewBag.DateSortParm, currentFilter = ViewBag.CurrentFilter })
         </th>
         <th></th>
     </tr>
@@ -59,6 +61,7 @@
 
 </table>
 <br />
+
 Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
 
 @Html.PagedListPager(Model, page => Url.Action("Index",
