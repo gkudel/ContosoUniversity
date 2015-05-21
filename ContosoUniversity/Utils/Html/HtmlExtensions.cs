@@ -16,11 +16,6 @@ namespace ContosoUniversity.Utils.Html
             return DisplayNameForInternal(html, expression);
         }
 
-       /* public static MvcHtmlString DisplayNameFor<TModel, TValue>(this HtmlHelper<IPagedList<TModel>> html, Expression<Func<TModel, TValue>> expression)
-        {
-            return DisplayNameForInternal(html, expression);
-        }*/
-
         internal static MvcHtmlString DisplayNameForInternal<TModel, TValue>(this HtmlHelper<IPagedList<TModel>> html, Expression<Func<TModel, TValue>> expression)
         {
             return DisplayNameHelper(ModelMetadata.FromLambdaExpression(expression, new ViewDataDictionary<TModel>()),
