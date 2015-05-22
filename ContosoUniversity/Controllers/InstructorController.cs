@@ -35,6 +35,13 @@ namespace ContosoUniversity.Controllers
             if (courseId != null)
             {
                 ViewBag.CourseId = courseId.Value;
+                /* Explicete loading
+                var selectedCourse = viewModel.Courses.Where(x => x.CourseID == courseId).Single();
+                db.Entry(selectedCourse).Collection(x => x.Enrollments).Load();
+                foreach (Enrollment e in selectedCourse.Enrollments)
+                {
+                    db.Entry(e).Reference(x => x.Student).Load();
+                } */
                 viewModel.Enrollments = viewModel.Courses.Where(c => c.CourseID == courseId)
                     .Single().Enrollments;
             }

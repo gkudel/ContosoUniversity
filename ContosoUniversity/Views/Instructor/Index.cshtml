@@ -22,7 +22,7 @@
             @Html.DisplayNameFor(model => model.Instructors, i => i.HireDate)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Instructors, i => i.OfficeAssignment)
+            @Html.DisplayNameFor(model => model.Instructors, i => i.OfficeAssignment.Location)
         </th>
         <th></th>
     </tr>
@@ -58,5 +58,73 @@
             </td>
         </tr>
     }
-
 </table>
+@if (Model.Courses != null)
+{
+    <h3>Courses Taught by Selected Instructor</h3>
+    <table class="table">
+        <tr>
+            <th></th>
+            <th>
+                @Html.DisplayNameFor(model => model.Courses, c => c.CourseID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Courses, c => c.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Courses, c => c.Department)
+            </th>
+        </tr>
+
+        @foreach (var item in Model.Courses)
+        {
+            string selectedRow = "";
+            if (item.CourseID == ViewBag.CourseID)
+            {
+                selectedRow = "success";
+            }
+            <tr class="@selectedRow">
+                <td>
+                    @Html.ActionLink("Select", "Index", new { courseID = item.CourseID })
+                </td>
+                <td>
+                    @item.CourseID
+                </td>
+                <td>
+                    @item.Title
+                </td>
+                <td>
+                    @item.Department.Name
+                </td>
+            </tr>
+        }
+    </table>
+}
+
+@if (Model.Enrollments != null)
+{
+    <h3>
+        Students Enrolled in Selected Course
+    </h3>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Enrollments, e => e.Student.FullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Enrollments, e => e.Grade)
+            </th>
+        </tr>
+        @foreach (var item in Model.Enrollments)
+        {
+            <tr>
+                <td>
+                    @item.Student.FullName
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Grade)
+                </td>
+            </tr>
+        }
+    </table>
+}

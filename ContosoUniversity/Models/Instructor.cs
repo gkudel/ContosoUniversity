@@ -28,7 +28,7 @@ namespace ContosoUniversity.Models
 
         public virtual ICollection<Course> Courses { get; set; }
 
-        [Display(Name = "Office")]
+        [Display(Name = "Office Location")]
         public virtual OfficeAssignment OfficeAssignment { get; set; }
     }
 }
