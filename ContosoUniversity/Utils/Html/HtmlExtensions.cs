@@ -28,5 +28,11 @@ namespace ContosoUniversity.Utils.Html
 
             return new MvcHtmlString(HttpUtility.HtmlEncode(resolvedDisplayName));
         }
+
+        public static IHtmlString DisplayNameFor<TModel, TClass, TProperty>(this HtmlHelper<TModel> helper, Expression<Func<TModel, IEnumerable<TClass>>> expression1, Expression<Func<TClass, TProperty>> expression2)
+        {
+            return DisplayNameHelper(ModelMetadata.FromLambdaExpression(expression2, new ViewDataDictionary<TClass>()), 
+                                     ExpressionHelper.GetExpressionText(expression2));
+        }
     }
 }
