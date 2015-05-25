@@ -18,6 +18,7 @@ namespace ContosoUniversity.DAL
         public virtual DbSet<Course> Courses { get; set; }
         public virtual DbSet<Department> Departments { get; set; }
         public virtual DbSet<Enrollment> Enrollments { get; set; }
+        public virtual DbSet<Person> People { get; set; }
         public virtual DbSet<Instructor> Instructors { get; set; }
         public virtual DbSet<Student> Students { get; set; }
         public virtual DbSet<OfficeAssignment> OfficeAssignments { get; set; }
