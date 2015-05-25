@@ -37,6 +37,11 @@ namespace ContosoUniversity.Controllers
                     EnrollmentDate = dateGroup.Key,
                     StudentCount = dateGroup.Count()
                 };
+            /*string query = "SELECT EnrollmentDate, COUNT(*) AS StudentCount "
+                + "FROM Person "
+                + "WHERE Discriminator = 'Student' "
+                + "GROUP BY EnrollmentDate";
+            IEnumerable<EnrollmentDateGroup> data = db.Database.SqlQuery<EnrollmentDateGroup>(query);*/
             return View(data.ToList());
         }
 
